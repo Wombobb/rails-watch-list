@@ -22,9 +22,11 @@
   <div class="row row-cols-2 row-cols-md-3">
     <% @lists.each do |list| %>
       <div class="col">
-        <div class="item card-category movie-cards" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= list.photo.attached? ? cl_image_path(list.photo.key) : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPQDYau3Hs4-xw1i8jVSUY4BlF4FLmg8lQqg&usqp=CAU' %>)">
-          <h2><%=link_to list.name.capitalize, list_path(list), class: "text-decoration-none text-white p-4" %></h2>
-        </div>
+        <%= link_to list_path(list), class: "text-decoration-none" do %>
+          <div class="item card-category movie-cards" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= list.photo.attached? ? cl_image_path(list.photo.key) : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPQDYau3Hs4-xw1i8jVSUY4BlF4FLmg8lQqg&usqp=CAU' %>)">
+            <h2 class="text-white text-center te p-4" style="text-shadow: 0px 2px 2px rgba(255, 255, 255, 0.4);"><%= list.name.capitalize %></h2>
+          </div>
+        <% end %>
       </div>
     <% end %>
   </div>
