@@ -4,7 +4,8 @@
     <div class="card d-flex m-4">
       <% @lists.each do |list| %>
         <li class="list-group-item">
-          <%=link_to list.name, list_path(list), class: "" %>
+          <h1><%=link_to list.name, list_path(list), class: "" %></h1>
+          <% list.photo %>
         </li>
       <% end %>
     </div>
