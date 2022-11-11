@@ -5,7 +5,7 @@
       <% @lists.each do |list| %>
         <li class="list-group-item">
           <h1><%=link_to list.name, list_path(list), class: "" %></h1>
-          <% list.photo %>
+          <% cl_image_tag list.photo %>
         </li>
       <% end %>
     </div>
