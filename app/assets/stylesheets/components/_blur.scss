@@ -1,0 +1,7 @@
+.blur:hover {
+  img {
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+  transition: 1s;
+  }
+}

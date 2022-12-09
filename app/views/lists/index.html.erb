@@ -1,29 +1,13 @@
-<nav class="navbar navbar-expand-lg bg-light">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Movie select</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <%= link_to "home", lists_path, class: "btn text-decoration-none" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Make a new list", new_list_path, class: "btn text-decoration-none" %>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
-<div class="container-fluid banner mb-3"></div>
+<div class="hero container-fluid banner mb-3">
+  <h1>Welcome to movie select</h1>
+</div>
 <div class="container mt-1">
   <h1>Your movie lists</h1>
   <div class="row row-cols-2 row-cols-md-3">
     <% @lists.each do |list| %>
       <div class="col">
         <%= link_to list_path(list), class: "text-decoration-none" do %>
-          <div class="item card-category movie-cards" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= list.photo.attached? ? cl_image_path(list.photo.key) : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPQDYau3Hs4-xw1i8jVSUY4BlF4FLmg8lQqg&usqp=CAU' %>)">
+          <div class="item card-category movie-cards blur" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= list.photo.attached? ? cl_image_path(list.photo.key) : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPQDYau3Hs4-xw1i8jVSUY4BlF4FLmg8lQqg&usqp=CAU' %>)">
             <h2 class="text-white text-center te p-4" style="text-shadow: 0px 2px 2px rgba(255, 255, 255, 0.4);"><%= list.name.capitalize %></h2>
           </div>
         <% end %>
